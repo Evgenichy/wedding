@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Courgette&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mob-style.css' %}">
+    <title>Alexandr&Nataliya</title>
+</head>
+<body>
+    <div class="container">
+        <div class="rings">
+            <div class="rings_picture">
+                <img src="{% static 'images/ring3.png' %}" alt="">
+            </div>
+            <div class="names">
+                <h1>Александр и Наталья</h1>
+            </div>
+        </div>
+        <div class="message">
+            <div class="lovers_photo">
+                <img src="{% static 'images/A&N.png' %}" alt="">
+            </div>
+            <div class="lovers_text">
+                <h2>Дорогие друзья и родные</h2>
+                <p>Осенью состоится очень важное и радостное для нас событие - наша свадьба</p>
+            </div>
+        </div>
+        <div class="place_n_date">
+            <img src="{% static 'images/place-n-date.png' %}" alt="">
+        </div>
+        <div class="program_of_event">
+                <h2>Программа мероприятия</h2><br>
+                <p>16:00 сбор гостей</p><br>
+                <p>17.00 Торжественная церемония</p><br>
+                <p>18.00 Свадебный банкет</p><br>
+        </div>
+        <div class="dress_code">
+            <h2>ДРЕСС-КОД:</h2><br>
+            <p>Мы будем рады видеть вас в следующих оттенках :</p><br>
+            <p class="text">Дамы</p><br>
+            <p class="text">Джентельмены: в костюмах черного цвета</p><br>
+        </div>
+        <div class="lovers_phot_a">
+            <img src="{% static 'images/anketa.jpg' %}" alt="">
+        </div>
+        <div class="form">
+            <form class="form" method="POST">
+            {% csrf_token %}
+            <h2>Анкета гостя</h2>
+                {% for field in form %}
+                <div class="form__field">
+                    <label>{{ field.label }}</label>
+                    <div class="vote_box">
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+                <input class="btn" type="submit" value="Отправить"/><a href="{% url 'success' %}"></a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

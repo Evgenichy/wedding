@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+
+<div class="success__message">
+    <h1>Анкета успешно заполнена!</h1>
+<div class="success">
+    <a href="{% url 'index' %}">
+    <img src="{% static 'images/success.png' %}" alt="">
+    </a>
+</div>
+</div>
+
+{% endblock %}
